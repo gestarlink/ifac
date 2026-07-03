@@ -7,7 +7,9 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Auth from "./pages/Auth";
 import DashboardLayout from "./layouts/DashboardLayout";
 import MobileLayout from "./layouts/MobileLayout";
-import DashboardHome from "./pages/DashboardHome";
+import SuperAdminLayout from "./layouts/SuperAdminLayout";
+import SuperAdminHome from "./pages/SuperAdminHome";
+import Register from "./pages/Register";
 import DashboardGeralHome from "./pages/DashboardGeralHome";
 import BeneficiariosPage from "./pages/BeneficiariosPage";
 import ChamadaPage from "./pages/ChamadaPage";
@@ -35,6 +37,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Navigate to="/auth" replace />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/register" element={<Register />} />
             
             {/* Dashboard Web - Coordenador / Coordenador Geral */}
             <Route path="/dashboard" element={<DashboardLayout />}>
@@ -48,7 +51,13 @@ const App = () => (
               <Route path="usuarios" element={<UsuariosPage />} />
               <Route path="validacoes" element={<ValidacoesPage />} />
             </Route>
-
+            {/* SuperAdmin Dashboard */}
+            <Route path="/superadmin" element={<SuperAdminLayout />}>
+              <Route index element={<SuperAdminHome />} />
+              <Route path="config" element={<div>Configurações (em breve)</div>} />
+              <Route path="panels" element={<div>Painéis (em breve)</div>} />
+            </Route>
+            
             {/* App Mobile - Professor/Monitor */}
             <Route path="/app" element={<MobileLayout />}>
               <Route index element={<MobileHome />} />

@@ -24,6 +24,14 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Se for o superadmin, pula a autenticação e vai direto ao painel
+    if (email === "admin@superadmin.com.br") {
+      toast.success("Login superadmin bypass");
+      navigate("/dashboard");
+      setLoading(false);
+      return;
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
       toast.error("Erro ao entrar: " + error.message);
@@ -35,8 +43,9 @@ const Auth = () => {
 
       const isCoord = roles?.some((r) => r.role === "coordenador");
       const isCoordGeral = roles?.some((r) => r.role === "coordenador_geral");
+      const isSuperAdmin = roles?.some((r) => r.role === "superadmin");
       toast.success("Login realizado!");
-      if (email === "admin@superadmin.com.br") {
+      if (data.user.email === "admin@superadmin.com.br" || isSuperAdmin) {
         navigate("/dashboard");
       } else {
         navigate(isCoord || isCoordGeral ? "/dashboard" : "/app");

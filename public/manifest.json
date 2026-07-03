@@ -1,0 +1,24 @@
+{
+  "name": "FAC — Formando Águias & Campeões",
+  "short_name": "FAC",
+  "description": "Sistema de Gestão Administrativa",
+  "start_url": "/auth",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1f3a",
+  "theme_color": "#0b1f3a",
+  "icons": [
+    {
+      "src": "/logo-fac.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-fac.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

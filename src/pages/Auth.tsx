@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -142,6 +142,9 @@ const Auth = () => {
               {loading ? "Aguarde..." : "Entrar"}
             </Button>
           </form>
+          <p className="text-center text-xs text-white/50 mt-6">
+            Ainda não tem conta? <Link to="/register" className="underline hover:text-white">Cadastre-se</Link>
+          </p>
         </div>
 
         <p className="text-center text-xs text-white/50 mt-6">

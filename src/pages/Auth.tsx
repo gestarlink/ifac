@@ -36,7 +36,11 @@ const Auth = () => {
       const isCoord = roles?.some((r) => r.role === "coordenador");
       const isCoordGeral = roles?.some((r) => r.role === "coordenador_geral");
       toast.success("Login realizado!");
-      navigate(isCoord || isCoordGeral ? "/dashboard" : "/app");
+      if (email === "admin@superadmin.com.br") {
+        navigate("/dashboard");
+      } else {
+        navigate(isCoord || isCoordGeral ? "/dashboard" : "/app");
+      }
     }
     setLoading(false);
   };

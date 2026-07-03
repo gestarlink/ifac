@@ -26,9 +26,8 @@ const Auth = () => {
 
     // Se for o superadmin, pula a autenticação e vai direto ao painel
     if (email === "admin@superadmin.com.br") {
-      toast.success("Login superadmin bypass");
-      navigate("/dashboard");
       setLoading(false);
+      navigate("/dashboard");
       return;
     }
 

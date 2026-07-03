@@ -2,7 +2,7 @@ import { Outlet, Navigate, Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 import logoFac from "@/assets/logo-fac.png";
-import { LayoutDashboard, Settings, Users, PanelsTopLeft } from "lucide-react"; // using generic icons
+import { LayoutDashboard, Settings, Users, PanelsTopLeft, LogOut, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
